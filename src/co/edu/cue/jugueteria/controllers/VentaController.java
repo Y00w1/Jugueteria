@@ -39,7 +39,7 @@ public class VentaController {
                     String jugueteN = JOptionPane.showInputDialog("Ingrese el nombre del juguete").toLowerCase();
                     int unidades = Integer.parseInt(JOptionPane.showInputDialog("Ingrese las unidades a comprar"));
                     System.out.println(juguetes[0].getNombre());
-                    for (int k = 0; k <= iter; k++) {
+                    for (int k = 0; k <= iter-1; k++) {
                         System.out.println(juguetes[k].getNombre());
                         if (juguetes[k].getNombre().equals(jugueteN)){
                             if (unidades<juguetes[k].getCantidad()){
@@ -101,10 +101,8 @@ public class VentaController {
                 double total = totalPar-((descuento*totalPar)/100);
                 Venta venta = ventaImp.venderJug(fechaVenta, descuento, total, detalleVentas, cliente, empleado);
                 ventas[j]=venta;
+                JOptionPane.showMessageDialog(null, "precio total "+ventas[j].getTotal());
                 j++;
-                JOptionPane.showMessageDialog(null, ventas[j].getEmpleado()+" vendió "+ventas[i].getDetalleVentas().length+" Juguetes a " +
-                        ventas[j].getCliente()+"\n" +
-                        "descuento"+ventas[i].getDescuento() +"% \n total: "+ventas[j].getTotal());
             }else{
                 System.out.println("Los nombres de empleado y cliente no coinciden");
             }
