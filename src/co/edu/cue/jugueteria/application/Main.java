@@ -2,6 +2,7 @@ package co.edu.cue.jugueteria.application;
 
 import co.edu.cue.jugueteria.controllers.JugueteController;
 import co.edu.cue.jugueteria.controllers.UsuarioController;
+import co.edu.cue.jugueteria.controllers.VentaController;
 import co.edu.cue.jugueteria.model.Juguete;
 
 import javax.swing.*;
@@ -10,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         UsuarioController usuarioC = new UsuarioController();
         JugueteController jugueteC = new JugueteController();
+        VentaController ventaC = new VentaController();
 
        String menu = "1.Agregar un nuevo juguete, cliente o empleado\n" +
                "2.Vender juguetes\n" +
@@ -31,10 +33,11 @@ public class Main {
                    switch (op1){
                        case 1:
                            jugueteC.crearJug();
-                           System.out.println(jugueteC.juguetes[0].getNombre());
+                           System.out.println(jugueteC.juguetes[jugueteC.i-1].getNombre());
                            break;
                        case 2:
                            usuarioC.crearCli();
+                           System.out.println(jugueteC.juguetes[jugueteC.i-1].getNombre());
                            break;
                        case 3:
                            usuarioC.crearEmpl();
@@ -45,9 +48,9 @@ public class Main {
 
                    break;
                case 2:
-
+                   ventaC.crearVenta(jugueteC.juguetes, jugueteC.i, usuarioC.clientes, usuarioC.empleados, usuarioC.j, usuarioC.i);
+//                   System.out.print(ventaC.ventas[0].getDetalleVentas()[0].getJuguete()+" "+ventaC.ventas[0].getTotal());
                    break;
-
            }
        }
     }

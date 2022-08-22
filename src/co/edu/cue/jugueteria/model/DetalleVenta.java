@@ -1,14 +1,14 @@
 package co.edu.cue.jugueteria.model;
 
 public class DetalleVenta {
-    private String cantidad;
+    private int cantidad;
     private Juguete juguete;
 
-    public String getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(String cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -20,7 +20,7 @@ public class DetalleVenta {
         this.juguete = juguete;
     }
 
-    public DetalleVenta(String cantidad, Juguete juguete) {
+    public DetalleVenta(int cantidad, Juguete juguete) {
         this.cantidad = cantidad;
         this.juguete = juguete;
     }

@@ -5,15 +5,16 @@ import co.edu.cue.jugueteria.model.Material;
 import co.edu.cue.jugueteria.services.impl.JugueteServiceImpl;
 
 import javax.swing.*;
+import java.util.Locale;
 
 public class JugueteController {
     JugueteServiceImpl jugueteImp = new JugueteServiceImpl();
     String material;
-    public Juguete[] juguetes= new Juguete[100];
-    int i = 0;
+    public Juguete[] juguetes= new Juguete[10];
+    public int i = 0;
 
     public void crearJug(){
-        String nombre = JOptionPane.showInputDialog(null, "Escriba el nombre del juguete");
+        String nombre = JOptionPane.showInputDialog(null, "Escriba el nombre del juguete").toLowerCase();
         double precio = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el precio"));
         int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese las existencias"));
         int mater = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el numero que corresponda al material\n" +
