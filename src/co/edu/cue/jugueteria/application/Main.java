@@ -26,10 +26,10 @@ public class Main {
         int op1;
 
        while (op!=0){
-           op = Integer.parseInt(JOptionPane.showInputDialog(null, menu));
+           op = Integer.parseInt(JOptionPane.showInputDialog(menu));
            switch (op){
                case 1:
-                   op1 = Integer.parseInt(JOptionPane.showInputDialog(null, menu1));
+                   op1 = Integer.parseInt(JOptionPane.showInputDialog(menu1));
                    switch (op1){
                        case 1:
                            jugueteC.crearJug();

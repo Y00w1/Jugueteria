@@ -25,10 +25,10 @@ public class VentaController {
 
     public void crearVenta(Juguete[] juguetes, int iter, Cliente[] clientes, Empleado[] empleados, int iterCli, int iterEmpl){
         try {
-            String fechaVenta = JOptionPane.showInputDialog(null, "Ingrese la fecha");
-            double descuento = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el descuento en porcentaje"));
-            String cliente = JOptionPane.showInputDialog(null, "Ingrese el nombre del cliente").toLowerCase();
-            String empleado = JOptionPane.showInputDialog(null, "Ingrese el nombre del empleado").toLowerCase();
+            String fechaVenta = JOptionPane.showInputDialog("Ingrese la fecha");
+            double descuento = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el descuento en porcentaje"));
+            String cliente = JOptionPane.showInputDialog("Ingrese el nombre del cliente").toLowerCase();
+            String empleado = JOptionPane.showInputDialog("Ingrese el nombre del empleado").toLowerCase();
             boolean nombres = compararNombres(cliente, empleado, clientes, empleados, iterCli, iterEmpl);
             if (nombres){
                 DetalleVenta[] detalleVentas = new DetalleVenta[10];
@@ -36,8 +36,8 @@ public class VentaController {
                 int i = 0;
                 double totalPar = 0;
                 while (cant!=0 && i<10){
-                    String jugueteN = JOptionPane.showInputDialog(null, "Ingrese el nombre del juguete").toLowerCase();
-                    int unidades = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese las unidades a comprar"));
+                    String jugueteN = JOptionPane.showInputDialog("Ingrese el nombre del juguete").toLowerCase();
+                    int unidades = Integer.parseInt(JOptionPane.showInputDialog("Ingrese las unidades a comprar"));
                     System.out.println(juguetes[0].getNombre());
                     for (int k = 0; k <= iter; k++) {
                         System.out.println(juguetes[k].getNombre());
@@ -46,10 +46,26 @@ public class VentaController {
                                 int nuevaCantidad = juguetes[k].getCantidad() - unidades;
                                 juguetes[k].setCantidad(nuevaCantidad);
                                 DetalleVenta detalleVenta=new DetalleVenta(unidades, juguetes[k]);
+                                String infoMat = "";
+                                switch (juguetes[k].getMaterial()){
+                                    case "plastico":
+                                        infoMat= "El juguete no requiere cuidados especiales";
+                                        break;
+                                    case "tela":
+                                        infoMat="El juguete no debe ser mojado";
+                                        break;
+                                    case "electronico":
+                                        infoMat= "El juguete no debe ser mojado y requiere baterías";
+                                        break;
+                                    default:
+                                        break;
+                                }
+
                                 detalleVentas[i] = detalleVenta;
                                 i++;
                                 System.out.println(juguetes[k].getNombre()+"Se vendió\n quedan "+juguetes[k].getCantidad()+" existenicas");
                                 totalPar=totalPar+(juguetes[k].getPrecio()*unidades);
+                                JOptionPane.showMessageDialog(null, infoMat);
                             }else {
                                 System.out.print("Cantidad inválida");
                             }
@@ -78,12 +94,11 @@ public class VentaController {
                         System.out.println("null");
                     }
                 }*/
-                    cant = Integer.parseInt(JOptionPane.showInputDialog(null, "1.Agregar un juguete \n 0.Terminar proceso"));
+                    cant = Integer.parseInt(JOptionPane.showInputDialog("1.Agregar un juguete \n 0.Terminar proceso"));
                 }if (i==10){
                     System.out.println("No puede agregar mas juguetes");
                 }
                 double total = totalPar-((descuento*totalPar)/100);
-                System.out.println(detalleVentas[0].getJuguete().getNombre());
                 Venta venta = ventaImp.venderJug(fechaVenta, descuento, total, detalleVentas, cliente, empleado);
                 ventas[j]=venta;
                 j++;

@@ -14,10 +14,10 @@ public class JugueteController {
     public int i = 0;
 
     public void crearJug(){
-        String nombre = JOptionPane.showInputDialog(null, "Escriba el nombre del juguete").toLowerCase();
-        double precio = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el precio"));
-        int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese las existencias"));
-        int mater = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el numero que corresponda al material\n" +
+        String nombre = JOptionPane.showInputDialog("Escriba el nombre del juguete").toLowerCase();
+        double precio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el precio"));
+        int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese las existencias"));
+        int mater = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero que corresponda al material\n" +
                 "1.Plástico\n" +
                 "2.Tela\n" +
                 "3.Eléctronico"));
@@ -29,7 +29,7 @@ public class JugueteController {
                 material = Material.tela;
                 break;
             case 3:
-                material = Material.electr;
+                material = Material.electronico;
                 break;
             default:
                 break;

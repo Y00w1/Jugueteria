@@ -16,12 +16,12 @@ public class UsuarioController {
 
     public void crearEmpl(){
         try {
-            String nombre = JOptionPane.showInputDialog(null, "Ingrese el nombre del empleado").toLowerCase();
-            String cedula = JOptionPane.showInputDialog(null, "Ingrese la cédula");
-            String telefono = JOptionPane.showInputDialog(null, "Ingrese el teléfono");
-            String direccion = JOptionPane.showInputDialog(null, "Ingrese la dirección");
-            String ingresoDato = JOptionPane.showInputDialog(null, "Ingrese la fecha de ingreso");
-            double salario = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese el salario del empleado"));
+            String nombre = JOptionPane.showInputDialog("Ingrese el nombre del empleado").toLowerCase();
+            String cedula = JOptionPane.showInputDialog("Ingrese la cédula");
+            String telefono = JOptionPane.showInputDialog("Ingrese el teléfono");
+            String direccion = JOptionPane.showInputDialog("Ingrese la dirección");
+            String ingresoDato = JOptionPane.showInputDialog("Ingrese la fecha de ingreso");
+            double salario = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el salario del empleado"));
 
             Empleado empleado = usuario.agregarEmpl(nombre, cedula, telefono, direccion, ingresoDato, salario);
             empleados[i]=empleado;
@@ -32,12 +32,12 @@ public class UsuarioController {
         }
     }
     public void crearCli(){
-        String nombre = JOptionPane.showInputDialog(null, "Ingrese el nombre del cliente").toLowerCase();
-        String cedula = JOptionPane.showInputDialog(null, "Ingrese la cédula");
-        String telefono = JOptionPane.showInputDialog(null, "Ingrese el teléfono");
-        String direccion = JOptionPane.showInputDialog(null, "Ingrese la dirección");
-        String fechaNac = JOptionPane.showInputDialog(null,"Ingrese la fecha de nacimiento");
-        String correo = JOptionPane.showInputDialog(null, "Ingrese el correo");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del cliente").toLowerCase();
+        String cedula = JOptionPane.showInputDialog("Ingrese la cédula");
+        String telefono = JOptionPane.showInputDialog("Ingrese el teléfono");
+        String direccion = JOptionPane.showInputDialog("Ingrese la dirección");
+        String fechaNac = JOptionPane.showInputDialog("Ingrese la fecha de nacimiento");
+        String correo = JOptionPane.showInputDialog("Ingrese el correo");
         Cliente cliente = usuario.agregarCli(nombre, cedula, telefono, direccion, fechaNac, correo);
         clientes[j]=cliente;
         j++;
