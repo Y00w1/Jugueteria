@@ -38,4 +38,9 @@ public class JugueteController {
         juguetes[i] = juguete;
         i++;
     }
+    public void disminuirExist(Juguete[] juguetes, int iter){
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del juguete").toLowerCase();
+        int disminuir = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad que desea disminuir"));
+        jugueteImp.disminuirExist(nombre, juguetes, iter, disminuir);
+    }
 }

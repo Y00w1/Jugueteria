@@ -102,6 +102,9 @@ public class VentaController {
                 Venta venta = ventaImp.venderJug(fechaVenta, descuento, total, detalleVentas, cliente, empleado);
                 ventas[j]=venta;
                 j++;
+                JOptionPane.showMessageDialog(null, ventas[j].getEmpleado()+" vendió "+ventas[i].getDetalleVentas().length+" Juguetes a " +
+                        ventas[j].getCliente()+"\n" +
+                        "descuento"+ventas[i].getDescuento() +"% \n total: "+ventas[j].getTotal());
             }else{
                 System.out.println("Los nombres de empleado y cliente no coinciden");
             }

@@ -1,5 +1,6 @@
 package co.edu.cue.jugueteria.application;
 
+import co.edu.cue.jugueteria.constants.Menu;
 import co.edu.cue.jugueteria.controllers.JugueteController;
 import co.edu.cue.jugueteria.controllers.UsuarioController;
 import co.edu.cue.jugueteria.controllers.VentaController;
@@ -12,32 +13,22 @@ public class Main {
         UsuarioController usuarioC = new UsuarioController();
         JugueteController jugueteC = new JugueteController();
         VentaController ventaC = new VentaController();
-
-       String menu = "1.Agregar un nuevo juguete, cliente o empleado\n" +
-               "2.Vender juguetes\n" +
-               "3.Disminuir existencias de juguete\n" +
-               "4.Aumentar existencias de juguete\n" +
-               "0.Finalizar";
+        Menu menus = new Menu();
        int op = 1;
-       String menu1 = "1.Agregar juguete\n" +
-               "2.Agregar cliente\n" +
-               "3.Agregar empleado\n" +
-               "0.cancelar";
-        int op1;
+       int op1;
+       int opInf;
 
        while (op!=0){
-           op = Integer.parseInt(JOptionPane.showInputDialog(menu));
+           op = Integer.parseInt(JOptionPane.showInputDialog(menus.menu));
            switch (op){
                case 1:
-                   op1 = Integer.parseInt(JOptionPane.showInputDialog(menu1));
+                   op1 = Integer.parseInt(JOptionPane.showInputDialog(menus.menu1));
                    switch (op1){
                        case 1:
                            jugueteC.crearJug();
-                           System.out.println(jugueteC.juguetes[jugueteC.i-1].getNombre());
                            break;
                        case 2:
                            usuarioC.crearCli();
-                           System.out.println(jugueteC.juguetes[jugueteC.i-1].getNombre());
                            break;
                        case 3:
                            usuarioC.crearEmpl();
@@ -50,6 +41,20 @@ public class Main {
                case 2:
                    ventaC.crearVenta(jugueteC.juguetes, jugueteC.i, usuarioC.clientes, usuarioC.empleados, usuarioC.j, usuarioC.i);
 //                   System.out.print(ventaC.ventas[0].getDetalleVentas()[0].getJuguete()+" "+ventaC.ventas[0].getTotal());
+                   break;
+               case 3:
+                   jugueteC.disminuirExist(jugueteC.juguetes, jugueteC.i);
+                   break;
+               case 5:
+                   opInf = Integer.parseInt(JOptionPane.showInputDialog(menus.menuInf));
+                   switch (opInf){
+                       case 1:
+
+                           break;
+                       case 2:
+
+                           break;
+                   }
                    break;
            }
        }
