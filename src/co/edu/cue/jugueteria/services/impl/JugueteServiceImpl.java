@@ -61,4 +61,11 @@ public class JugueteServiceImpl implements JugueteService {
         }
         JOptionPane.showMessageDialog(null, "Total de juguetes: "+total);
     }
+    public void valorTotal(Juguete[] juguetes, int iter) {
+        double total = 0;
+        for (int i = 0; i < iter; i++){
+            total = total + (juguetes[i].getCantidad()*juguetes[i].getPrecio());
+        }
+        JOptionPane.showMessageDialog(null, "Valor total juguetes: "+total);
+    }
 }

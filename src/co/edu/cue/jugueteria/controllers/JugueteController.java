@@ -54,4 +54,7 @@ public class JugueteController {
     public void totalJuguetes(Juguete[] juguetes, int iter){
         jugueteImp.totalJuguetes(juguetes, iter);
     }
+    public void valorTotal(Juguete[] juguetes, int iter){
+        jugueteImp.valorTotal(juguetes, iter);
+    }
 }

@@ -8,4 +8,5 @@ public interface JugueteService {
     void aumentarExist(String nombre, Juguete[] juguetes, int iter, int aum);
     void juguetesTipo(Juguete[] juguetes, int iter);
     void totalJuguetes(Juguete[] juguetes, int iter);
+    void valorTotal(Juguete[] juguetes, int iter);
 }

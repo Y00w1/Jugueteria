@@ -57,6 +57,9 @@ public class Main {
                        case 2:
                            jugueteC.totalJuguetes(jugueteC.juguetes, jugueteC.i);
                            break;
+                       case 3:
+                           jugueteC.valorTotal(jugueteC.juguetes, jugueteC.i);
+                           break;
                    }
                    break;
            }
