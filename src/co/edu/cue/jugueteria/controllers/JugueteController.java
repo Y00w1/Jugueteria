@@ -49,12 +49,30 @@ public class JugueteController {
         jugueteImp.aumentarExist(nombre, juguetes, iter, aumentar);
     }
     public void juguetesTipo(Juguete[] juguetes, int iter){
-        jugueteImp.juguetesTipo(juguetes, iter);
+        int[] cantTipo = new int[3];
+        jugueteImp.juguetesTipo(juguetes, iter, cantTipo);
+        JOptionPane.showMessageDialog(null, "Juguetes de plástico: "+cantTipo[0]+"\nJuguetes de tela: "+cantTipo[1]+"\nJuguetes electrónicos: "+cantTipo[2]);
     }
     public void totalJuguetes(Juguete[] juguetes, int iter){
         jugueteImp.totalJuguetes(juguetes, iter);
     }
     public void valorTotal(Juguete[] juguetes, int iter){
         jugueteImp.valorTotal(juguetes, iter);
+    }
+    public void masxTipo(Juguete[] juguetes, int iter){
+        int max = jugueteImp.masxTipo(juguetes, iter);
+        switch (max){
+            case 0:
+                JOptionPane.showMessageDialog(null, "Plástico tiene mas juguetes");
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "Tela tiene más juguetes");
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Electrónico tiene más juguetes");
+                break;
+            default:
+                break;
+        }
     }
 }

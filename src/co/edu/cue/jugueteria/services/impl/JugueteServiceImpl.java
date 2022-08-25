@@ -35,24 +35,22 @@ public class JugueteServiceImpl implements JugueteService {
             }
         }
     }
-    public void juguetesTipo(Juguete[] juguetes, int iter) {
-        int p=0, t=0, e=0;
+    public void juguetesTipo(Juguete[] juguetes, int iter, int[] cantTipo) {
         for (int i = 0; i < iter; i++) {
             switch (juguetes[i].getMaterial()){
                 case "plastico":
-                    p = p + juguetes[i].getCantidad();
+                    cantTipo[0] = cantTipo[0] + juguetes[i].getCantidad();
                     break;
                 case "tela":
-                    t = t + juguetes[i].getCantidad();
+                    cantTipo[1] = cantTipo[1] + juguetes[i].getCantidad();
                     break;
                 case "electronico":
-                    e = e + juguetes[i].getCantidad();
+                    cantTipo[2] = cantTipo[2] + juguetes[i].getCantidad();
                     break;
                 default:
                     break;
             }
         }
-        JOptionPane.showMessageDialog(null, "Juguetes de plástico: "+p+"\nJuguetes de tela: "+t+"\nJuguetes electrónicos: "+e);
     }
     public void totalJuguetes(Juguete[] juguetes, int iter) {
         int total = 0;
@@ -67,5 +65,15 @@ public class JugueteServiceImpl implements JugueteService {
             total = total + (juguetes[i].getCantidad()*juguetes[i].getPrecio());
         }
         JOptionPane.showMessageDialog(null, "Valor total juguetes: "+total);
+    }
+    public int masxTipo(Juguete[] juguetes, int iter) {
+        int cantTipo[] = new int[3];
+        this.juguetesTipo(juguetes, iter, cantTipo);
+        int j = cantTipo[0];
+        int max = 0;
+        for (int i = 1; i < 3; i++) {
+            max = cantTipo[i]>j? i : 0;
+        }
+        return max;
     }
 }

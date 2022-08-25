@@ -60,6 +60,9 @@ public class Main {
                        case 3:
                            jugueteC.valorTotal(jugueteC.juguetes, jugueteC.i);
                            break;
+                       case 4:
+                           jugueteC.masxTipo(jugueteC.juguetes, jugueteC.i);
+                           break;
                    }
                    break;
            }
