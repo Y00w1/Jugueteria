@@ -12,7 +12,6 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         UsuarioController usuarioC = new UsuarioController();
-        UsuarioServiceImpl usuarioI = new UsuarioServiceImpl();
         JugueteController jugueteC = new JugueteController();
         VentaController ventaC = new VentaController();
         Menu menus = new Menu();
@@ -45,31 +44,31 @@ public class Main {
 //                   System.out.print(ventaC.ventas[0].getDetalleVentas()[0].getJuguete()+" "+ventaC.ventas[0].getTotal());
                    break;
                case 3:
-                   jugueteC.disminuirExist(jugueteC.juguetes, jugueteC.i);
+                   jugueteC.disminuirExist();
                    break;
                case 4:
-                   jugueteC.aumentarExist(jugueteC.juguetes, jugueteC.i);
+                   jugueteC.aumentarExist();
                    break;
                case 5:
                    opInf = Integer.parseInt(JOptionPane.showInputDialog(menus.menuInf));
                    switch (opInf){
                        case 1:
-                           jugueteC.juguetesTipo(jugueteC.juguetes, jugueteC.i);
+                           jugueteC.juguetesTipo();
                            break;
                        case 2:
-                           jugueteC.totalJuguetes(jugueteC.juguetes, jugueteC.i);
+                           jugueteC.totalJuguetes();
                            break;
                        case 3:
-                           jugueteC.valorTotal(jugueteC.juguetes, jugueteC.i);
+                           jugueteC.valorTotal();
                            break;
                        case 4:
-                           jugueteC.masxTipo(jugueteC.juguetes, jugueteC.i);
+                           jugueteC.masxTipo();
                            break;
                        case 5:
-                           jugueteC.menorTipo(jugueteC.juguetes, jugueteC.i);
+                           jugueteC.menorTipo();
                            break;
                        case 6:
-                           jugueteC.juguetesMay(jugueteC.juguetes, jugueteC.i);
+                           jugueteC.juguetesMay();
                            break;
                        default:
                            break;

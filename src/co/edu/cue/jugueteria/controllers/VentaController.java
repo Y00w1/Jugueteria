@@ -6,12 +6,7 @@ import co.edu.cue.jugueteria.services.impl.VentaServiceImpl;
 import javax.swing.*;
 
 public class VentaController {
-    UsuarioController usuarioC = new UsuarioController();
     VentaServiceImpl ventaImp = new VentaServiceImpl();
-    JugueteController jugueteC = new JugueteController();
-    public Venta[] ventas = new Venta[10];
-    int j=0;
-
     private boolean compararNombres(String clienteN, String empleadoN, Cliente[] clientes, Empleado[] empleados, int iterCli, int iterEmpl){
         boolean igualCli = false, igualEmpl = false;
         for (int i = 0; i < iterCli; i++) {

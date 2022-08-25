@@ -7,10 +7,11 @@ import co.edu.cue.jugueteria.services.JugueteService;
 import javax.swing.*;
 
 public class JugueteServiceImpl implements JugueteService {
-    public Juguete[] juguetes= new Juguete[10];
-    public int i = 0;
+    public Juguete[] juguetes = new Juguete[10];
+    public int[] cantTipo = new int[3];
+    String material = "";
+    public int j = 0;
     public void agregarJug(String nombre, double precio, int cantidad, int mater) {
-        String material = "";
         switch (mater){
             case 1:
                 material = Material.plastico;
@@ -24,14 +25,14 @@ public class JugueteServiceImpl implements JugueteService {
             default:
                 break;
         }
-        juguetes[i] = new Juguete(nombre, precio, cantidad, material);
-        i++;
+        juguetes[j] = new Juguete(nombre, precio, cantidad, material);
+        j++;
     }
-    public void disminuirExist(String nombre, Juguete[] juguetes, int iter, int dism) {
+    public void disminuirExist(String nombre, int dism) {
         boolean existe = false;
-        for (int i = 0; i < iter; i++) {
-            if (juguetes[i].getNombre().equals(nombre) && juguetes[i].getCantidad()>=dism){
-                existe=true;
+        for (int i = 0; i < j; i++) {
+            if (juguetes[i].getNombre().equals(nombre) && juguetes[i].getCantidad() >= dism){
+                existe = true;
                 juguetes[i].setCantidad(juguetes[i].getCantidad()-dism);
                 System.out.println("Hay "+juguetes[i].getCantidad() +" existencias del juguete "+juguetes[i].getNombre());
             }
@@ -40,9 +41,9 @@ public class JugueteServiceImpl implements JugueteService {
         }
     }
 
-    public void aumentarExist(String nombre, Juguete[] juguetes, int iter, int aum) {
+    public void aumentarExist(String nombre, int aum) {
         boolean existe = false;
-        for (int i = 0; i < iter; i++) {
+        for (int i = 0; i < j; i++) {
             if (juguetes[i].getNombre().equals(nombre)){
                 existe=true;
                 juguetes[i].setCantidad(juguetes[i].getCantidad()+aum);
@@ -52,8 +53,11 @@ public class JugueteServiceImpl implements JugueteService {
             }
         }
     }
-    public void juguetesTipo(Juguete[] juguetes, int iter, int[] cantTipo) {
-        for (int i = 0; i < iter; i++) {
+    public void juguetesTipo(int[] cantTipo) {
+        cantTipo[0]=0;
+        cantTipo[1]=0;
+        cantTipo[2]=0;
+        for (int i = 0; i < j; i++) {
             switch (juguetes[i].getMaterial()){
                 case "plastico":
                     cantTipo[0] = cantTipo[0] + juguetes[i].getCantidad();
@@ -69,23 +73,26 @@ public class JugueteServiceImpl implements JugueteService {
             }
         }
     }
-    public void totalJuguetes(Juguete[] juguetes, int iter) {
+    public void mostrarTipo() {
+        juguetesTipo(cantTipo);
+        JOptionPane.showMessageDialog(null, "Juguetes de plástico: "+cantTipo[0]+"\nJuguetes de tela: "+cantTipo[1]+"\nJuguetes electrónicos: "+cantTipo[2]);
+    }
+    public void totalJuguetes() {
         int total = 0;
-        for (int i = 0; i < iter; i++) {
+        for (int i = 0; i < j; i++) {
             total = total + juguetes[i].getCantidad();
         }
         JOptionPane.showMessageDialog(null, "Total de juguetes: "+total);
     }
-    public void valorTotal(Juguete[] juguetes, int iter) {
+    public void valorTotal() {
         double total = 0;
-        for (int i = 0; i < iter; i++){
+        for (int i = 0; i < j; i++){
             total = total + (juguetes[i].getCantidad()*juguetes[i].getPrecio());
         }
         JOptionPane.showMessageDialog(null, "Valor total juguetes: "+total);
     }
-    public int masxTipo(Juguete[] juguetes, int iter) {
-        int cantTipo[] = new int[3];
-        this.juguetesTipo(juguetes, iter, cantTipo);
+    public void masxTipo() {
+        this.juguetesTipo(cantTipo);
         int j = cantTipo[0];
         int max = 0;
         for (int i = 1; i < 3; i++) {
@@ -94,11 +101,22 @@ public class JugueteServiceImpl implements JugueteService {
                 j=cantTipo[i];
             }
         }
-        return max;
+        switch (max){
+            case 0:
+                JOptionPane.showMessageDialog(null, "Plástico tiene mas juguetes");
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "Tela tiene más juguetes");
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Electrónico tiene más juguetes");
+                break;
+            default:
+                break;
+        }
     }
-    public int menorTipo(Juguete[] juguetes, int iter) {
-        int cantTipo[] = new int[3];
-        this.juguetesTipo(juguetes, iter, cantTipo);
+    public void menorTipo() {
+        this.juguetesTipo(cantTipo);
         int j = cantTipo[0];
         int min = 0;
         for (int i = 1; i < 3; i++) {
@@ -107,17 +125,31 @@ public class JugueteServiceImpl implements JugueteService {
                 j = cantTipo[i];
             }
         }
-        return min;
+        switch (min) {
+            case 0:
+                JOptionPane.showMessageDialog(null, "Plástico tiene menos juguetes");
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "Tela tiene menos juguetes");
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Electrónico tiene menos juguetes");
+                break;
+            default:
+                break;
+        }
     }
-    public int juguetesMayor(Juguete[] juguetes, int iter, String[] juguetesMay, double valor) {
-        int j = 0;
-        for (int i = 0; i < iter; i++) {
+    public void juguetesMayor(String[] juguetesMay, double valor) {
+        int k = 0;
+        for (int i = 0; i < j; i++) {
             if (juguetes[i].getPrecio()>valor){
-                juguetesMay[j] = juguetes[i].getNombre();
-                j++;
+                juguetesMay[k] = juguetes[i].getNombre();
+                k++;
             }
         }
-        return j;
+        for (int i = 0; i < j; i++) {
+            System.out.println(juguetes[i]);
+        }
     }
 
 }

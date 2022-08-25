@@ -1,7 +1,5 @@
 package co.edu.cue.jugueteria.controllers;
 
-import co.edu.cue.jugueteria.model.Juguete;
-import co.edu.cue.jugueteria.model.Material;
 import co.edu.cue.jugueteria.services.impl.JugueteServiceImpl;
 
 import javax.swing.*;
@@ -9,9 +7,6 @@ import java.util.Locale;
 
 public class JugueteController {
     JugueteServiceImpl jugueteImp = new JugueteServiceImpl();
-    String material;
-
-
     public void crearJug(){
         String nombre = JOptionPane.showInputDialog("Escriba el nombre del juguete").toLowerCase();
         double precio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el precio"));
@@ -20,66 +15,26 @@ public class JugueteController {
                 "1.Plástico\n" +
                 "2.Tela\n" +
                 "3.Eléctronico"));
+        jugueteImp.agregarJug(nombre, precio, cantidad, mater);
     }
-    public void disminuirExist(Juguete[] juguetes, int iter){
+    public void disminuirExist(){
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre del juguete").toLowerCase();
         int disminuir = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad que desea disminuir"));
-        jugueteImp.disminuirExist(nombre, juguetes, iter, disminuir);
+        jugueteImp.disminuirExist(nombre, disminuir);
     }
-    public void aumentarExist(Juguete[] juguetes, int iter){
+    public void aumentarExist(){
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre del juguete").toLowerCase();
         int aumentar = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad que desea aumentar"));
-        jugueteImp.aumentarExist(nombre, juguetes, iter, aumentar);
+        jugueteImp.aumentarExist(nombre, aumentar);
     }
-    public void juguetesTipo(Juguete[] juguetes, int iter){
-        int[] cantTipo = new int[3];
-        jugueteImp.juguetesTipo(juguetes, iter, cantTipo);
-        JOptionPane.showMessageDialog(null, "Juguetes de plástico: "+cantTipo[0]+"\nJuguetes de tela: "+cantTipo[1]+"\nJuguetes electrónicos: "+cantTipo[2]);
-    }
-    public void totalJuguetes(Juguete[] juguetes, int iter){
-        jugueteImp.totalJuguetes(juguetes, iter);
-    }
-    public void valorTotal(Juguete[] juguetes, int iter){
-        jugueteImp.valorTotal(juguetes, iter);
-    }
-    public void masxTipo(Juguete[] juguetes, int iter){
-        int max = jugueteImp.masxTipo(juguetes, iter);
-        switch (max){
-            case 0:
-                JOptionPane.showMessageDialog(null, "Plástico tiene mas juguetes");
-                break;
-            case 1:
-                JOptionPane.showMessageDialog(null, "Tela tiene más juguetes");
-                break;
-            case 2:
-                JOptionPane.showMessageDialog(null, "Electrónico tiene más juguetes");
-                break;
-            default:
-                break;
-        }
-    }
-    public void menorTipo(Juguete[] juguetes, int iter){
-        int min = jugueteImp.menorTipo(juguetes, iter);
-        switch (min) {
-            case 0:
-                JOptionPane.showMessageDialog(null, "Plástico tiene menos juguetes");
-                break;
-            case 1:
-                JOptionPane.showMessageDialog(null, "Tela tiene menos juguetes");
-                break;
-            case 2:
-                JOptionPane.showMessageDialog(null, "Electrónico tiene menos juguetes");
-                break;
-            default:
-                break;
-        }
-    }
-    public void juguetesMay(Juguete[] juguetes, int iter){
+    public void juguetesTipo() { jugueteImp.mostrarTipo(); }
+    public void totalJuguetes(){ jugueteImp.totalJuguetes(); }
+    public void valorTotal(){ jugueteImp.valorTotal(); }
+    public void masxTipo(){  jugueteImp.masxTipo(); }
+    public void menorTipo(){ jugueteImp.menorTipo(); }
+    public void juguetesMay(){
         String[] juguetesM = new String[100];
         double valor = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor a comparar"));
-        int tam = jugueteImp.juguetesMayor(juguetes, iter, juguetesM, valor);
-        for (int i = 0; i < tam; i++) {
-            System.out.println(juguetesM[i]);
-        }
+        jugueteImp.juguetesMayor(juguetesM, valor);
     }
 }
