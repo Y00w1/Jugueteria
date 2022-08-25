@@ -5,12 +5,14 @@ import co.edu.cue.jugueteria.controllers.JugueteController;
 import co.edu.cue.jugueteria.controllers.UsuarioController;
 import co.edu.cue.jugueteria.controllers.VentaController;
 import co.edu.cue.jugueteria.model.Juguete;
+import co.edu.cue.jugueteria.services.impl.UsuarioServiceImpl;
 
 import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
         UsuarioController usuarioC = new UsuarioController();
+        UsuarioServiceImpl usuarioI = new UsuarioServiceImpl();
         JugueteController jugueteC = new JugueteController();
         VentaController ventaC = new VentaController();
         Menu menus = new Menu();
@@ -39,7 +41,7 @@ public class Main {
 
                    break;
                case 2:
-                   ventaC.crearVenta(jugueteC.juguetes, jugueteC.i, usuarioC.clientes, usuarioC.empleados, usuarioC.j, usuarioC.i);
+                   ventaC.crearVenta(jugueteC.juguetes, jugueteC.i, usuarioI.clientes, usuarioI.empleados, usuarioI.j, usuarioI.i);
 //                   System.out.print(ventaC.ventas[0].getDetalleVentas()[0].getJuguete()+" "+ventaC.ventas[0].getTotal());
                    break;
                case 3:
