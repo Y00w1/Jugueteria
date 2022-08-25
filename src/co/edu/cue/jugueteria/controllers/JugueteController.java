@@ -91,4 +91,12 @@ public class JugueteController {
                 break;
         }
     }
+    public void juguetesMay(Juguete[] juguetes, int iter){
+        String[] juguetesM = new String[100];
+        double valor = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor a comparar"));
+        int tam = jugueteImp.juguetesMayor(juguetes, iter, juguetesM, valor);
+        for (int i = 0; i < tam; i++) {
+            System.out.println(juguetesM[i]);
+        }
+    }
 }

@@ -66,7 +66,14 @@ public class Main {
                        case 5:
                            jugueteC.menorTipo(jugueteC.juguetes, jugueteC.i);
                            break;
+                       case 6:
+                           jugueteC.juguetesMay(jugueteC.juguetes, jugueteC.i);
+                           break;
+                       default:
+                           break;
                    }
+                   break;
+               default:
                    break;
            }
        }

@@ -92,4 +92,15 @@ public class JugueteServiceImpl implements JugueteService {
         }
         return min;
     }
+    public int juguetesMayor(Juguete[] juguetes, int iter, String[] juguetesMay, double valor) {
+        int j = 0;
+        for (int i = 0; i < iter; i++) {
+            if (juguetes[i].getPrecio()>valor){
+                juguetesMay[j] = juguetes[i].getNombre();
+                j++;
+            }
+        }
+        return j;
+    }
+
 }
