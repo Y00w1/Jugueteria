@@ -48,4 +48,7 @@ public class JugueteController {
         int aumentar = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad que desea aumentar"));
         jugueteImp.aumentarExist(nombre, juguetes, iter, aumentar);
     }
+    public void juguetesTipo(Juguete[] juguetes, int iter){
+        jugueteImp.juguetesTipo(juguetes, iter);
+    }
 }

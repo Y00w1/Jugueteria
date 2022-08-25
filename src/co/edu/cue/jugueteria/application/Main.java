@@ -52,7 +52,7 @@ public class Main {
                    opInf = Integer.parseInt(JOptionPane.showInputDialog(menus.menuInf));
                    switch (opInf){
                        case 1:
-
+                           jugueteC.juguetesTipo(jugueteC.juguetes, jugueteC.i);
                            break;
                        case 2:
 

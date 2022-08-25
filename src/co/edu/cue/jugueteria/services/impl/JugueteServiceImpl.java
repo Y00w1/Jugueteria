@@ -3,6 +3,8 @@ package co.edu.cue.jugueteria.services.impl;
 import co.edu.cue.jugueteria.model.Juguete;
 import co.edu.cue.jugueteria.services.JugueteService;
 
+import javax.swing.*;
+
 public class JugueteServiceImpl implements JugueteService {
 
     public Juguete agregarJug(String nombre, double precio, int cantidad, String material) {
@@ -32,5 +34,24 @@ public class JugueteServiceImpl implements JugueteService {
                 System.out.println("No se encontró el nombre o la cantidad es incorrecta.");
             }
         }
+    }
+    public void juguetesTipo(Juguete[] juguetes, int iter) {
+        int p=0, t=0, e=0;
+        for (int i = 0; i < iter; i++) {
+            switch (juguetes[i].getMaterial()){
+                case "plastico":
+                    p++;
+                    break;
+                case "tela":
+                    t++;
+                    break;
+                case "electronico":
+                    e++;
+                    break;
+                default:
+                    break;
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Juguetes de plástico: "+p+"\nJuguetes de tela: "+t+"\nJuguetes electrónicos: "+e);
     }
 }
