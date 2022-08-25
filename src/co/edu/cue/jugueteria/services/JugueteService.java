@@ -5,4 +5,5 @@ import co.edu.cue.jugueteria.model.Juguete;
 public interface JugueteService {
     Juguete agregarJug(String nombre, double precio, int cantidad, String material);
     void disminuirExist(String nombre, Juguete[] juguetes, int iter, int dism);
+    void aumentarExist(String nombre, Juguete[] juguetes, int iter, int aum);
 }

@@ -20,4 +20,17 @@ public class JugueteServiceImpl implements JugueteService {
             }
         }
     }
+
+    public void aumentarExist(String nombre, Juguete[] juguetes, int iter, int aum) {
+        boolean existe = false;
+        for (int i = 0; i < iter; i++) {
+            if (juguetes[i].getNombre().equals(nombre)){
+                existe=true;
+                juguetes[i].setCantidad(juguetes[i].getCantidad()+aum);
+                System.out.println("Hay "+juguetes[i].getCantidad() +" existencias del juguete "+juguetes[i].getNombre());
+            }if (!existe){
+                System.out.println("No se encontró el nombre o la cantidad es incorrecta.");
+            }
+        }
+    }
 }

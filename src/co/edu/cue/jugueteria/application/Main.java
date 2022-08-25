@@ -45,6 +45,9 @@ public class Main {
                case 3:
                    jugueteC.disminuirExist(jugueteC.juguetes, jugueteC.i);
                    break;
+               case 4:
+                   jugueteC.aumentarExist(jugueteC.juguetes, jugueteC.i);
+                   break;
                case 5:
                    opInf = Integer.parseInt(JOptionPane.showInputDialog(menus.menuInf));
                    switch (opInf){
