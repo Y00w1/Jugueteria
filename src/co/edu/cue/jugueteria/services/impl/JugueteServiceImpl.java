@@ -40,18 +40,25 @@ public class JugueteServiceImpl implements JugueteService {
         for (int i = 0; i < iter; i++) {
             switch (juguetes[i].getMaterial()){
                 case "plastico":
-                    p++;
+                    p = p + juguetes[i].getCantidad();
                     break;
                 case "tela":
-                    t++;
+                    t = t + juguetes[i].getCantidad();
                     break;
                 case "electronico":
-                    e++;
+                    e = e + juguetes[i].getCantidad();
                     break;
                 default:
                     break;
             }
         }
         JOptionPane.showMessageDialog(null, "Juguetes de plástico: "+p+"\nJuguetes de tela: "+t+"\nJuguetes electrónicos: "+e);
+    }
+    public void totalJuguetes(Juguete[] juguetes, int iter) {
+        int total = 0;
+        for (int i = 0; i < iter; i++) {
+            total = total + juguetes[i].getCantidad();
+        }
+        JOptionPane.showMessageDialog(null, "Total de juguetes: "+total);
     }
 }
