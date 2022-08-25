@@ -1,14 +1,31 @@
 package co.edu.cue.jugueteria.services.impl;
 
 import co.edu.cue.jugueteria.model.Juguete;
+import co.edu.cue.jugueteria.model.Material;
 import co.edu.cue.jugueteria.services.JugueteService;
 
 import javax.swing.*;
 
 public class JugueteServiceImpl implements JugueteService {
-
-    public Juguete agregarJug(String nombre, double precio, int cantidad, String material) {
-        return new Juguete(nombre, precio, cantidad, material);
+    public Juguete[] juguetes= new Juguete[10];
+    public int i = 0;
+    public void agregarJug(String nombre, double precio, int cantidad, int mater) {
+        String material = "";
+        switch (mater){
+            case 1:
+                material = Material.plastico;
+                break;
+            case 2:
+                material = Material.tela;
+                break;
+            case 3:
+                material = Material.electronico;
+                break;
+            default:
+                break;
+        }
+        juguetes[i] = new Juguete(nombre, precio, cantidad, material);
+        i++;
     }
     public void disminuirExist(String nombre, Juguete[] juguetes, int iter, int dism) {
         boolean existe = false;

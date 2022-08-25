@@ -10,8 +10,7 @@ import java.util.Locale;
 public class JugueteController {
     JugueteServiceImpl jugueteImp = new JugueteServiceImpl();
     String material;
-    public Juguete[] juguetes= new Juguete[10];
-    public int i = 0;
+
 
     public void crearJug(){
         String nombre = JOptionPane.showInputDialog("Escriba el nombre del juguete").toLowerCase();
@@ -21,22 +20,6 @@ public class JugueteController {
                 "1.Plástico\n" +
                 "2.Tela\n" +
                 "3.Eléctronico"));
-        switch (mater){
-            case 1:
-                material = Material.plastico;
-                break;
-            case 2:
-                material = Material.tela;
-                break;
-            case 3:
-                material = Material.electronico;
-                break;
-            default:
-                break;
-        }
-        Juguete juguete = jugueteImp.agregarJug(nombre, precio, cantidad, material);
-        juguetes[i] = juguete;
-        i++;
     }
     public void disminuirExist(Juguete[] juguetes, int iter){
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre del juguete").toLowerCase();

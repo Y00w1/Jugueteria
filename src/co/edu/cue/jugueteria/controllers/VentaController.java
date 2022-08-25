@@ -73,27 +73,6 @@ public class VentaController {
                             System.out.println("no nombre");
                         }
                     }
-                /*for (Juguete juguete : jugueteC.juguetes) {
-                    if(String.valueOf(juguete)!="null"){
-                        if(jugueteN.equals(String.valueOf(juguete.getNombre()))){
-                            if (unidades<juguete.getCantidad()){
-                                int nuevaCantidad = juguete.getCantidad() - unidades;
-                                juguete.setCantidad(nuevaCantidad);
-                                DetalleVenta detalleVenta=new DetalleVenta(unidades, juguete);
-                                detalleVentas[i] = detalleVenta;
-                                i++;
-                                System.out.println(juguete.getNombre()+"Se vendió\n quedan "+juguete.getCantidad()+" existenicas");
-                                totalPar=totalPar+(juguete.getCantidad()*unidades);
-                            }else {
-                                System.out.print("Cantidad inválida");
-                            }
-                        }else{
-                            System.out.println("no nombre");
-                        }
-                    }else{
-                        System.out.println("null");
-                    }
-                }*/
                     cant = Integer.parseInt(JOptionPane.showInputDialog("1.Agregar un juguete \n 0.Terminar proceso"));
                 }if (i==10){
                     System.out.println("No puede agregar mas juguetes");
