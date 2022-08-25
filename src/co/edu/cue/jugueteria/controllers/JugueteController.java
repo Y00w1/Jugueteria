@@ -75,4 +75,20 @@ public class JugueteController {
                 break;
         }
     }
+    public void menorTipo(Juguete[] juguetes, int iter){
+        int min = jugueteImp.menorTipo(juguetes, iter);
+        switch (min) {
+            case 0:
+                JOptionPane.showMessageDialog(null, "Plástico tiene menos juguetes");
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "Tela tiene menos juguetes");
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Electrónico tiene menos juguetes");
+                break;
+            default:
+                break;
+        }
+    }
 }

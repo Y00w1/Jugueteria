@@ -10,4 +10,5 @@ public interface JugueteService {
     void totalJuguetes(Juguete[] juguetes, int iter);
     void valorTotal(Juguete[] juguetes, int iter);
     int masxTipo(Juguete[] juguetes, int iter);
+    int menorTipo(Juguete[] juguetes, int iter);
 }

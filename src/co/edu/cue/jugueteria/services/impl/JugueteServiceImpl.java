@@ -17,9 +17,9 @@ public class JugueteServiceImpl implements JugueteService {
                 existe=true;
                 juguetes[i].setCantidad(juguetes[i].getCantidad()-dism);
                 System.out.println("Hay "+juguetes[i].getCantidad() +" existencias del juguete "+juguetes[i].getNombre());
-            }if (!existe){
-                System.out.println("No se encontró el nombre o la cantidad es incorrecta.");
             }
+        }if (!existe){
+            System.out.println("No se encontró el nombre o la cantidad es incorrecta.");
         }
     }
 
@@ -72,8 +72,24 @@ public class JugueteServiceImpl implements JugueteService {
         int j = cantTipo[0];
         int max = 0;
         for (int i = 1; i < 3; i++) {
-            max = cantTipo[i]>j? i : 0;
+            if (cantTipo[i]>j){
+                max = i;
+                j=cantTipo[i];
+            }
         }
         return max;
+    }
+    public int menorTipo(Juguete[] juguetes, int iter) {
+        int cantTipo[] = new int[3];
+        this.juguetesTipo(juguetes, iter, cantTipo);
+        int j = cantTipo[0];
+        int min = 0;
+        for (int i = 1; i < 3; i++) {
+            if (cantTipo[i]<j){
+                min = i;
+                j = cantTipo[i];
+            }
+        }
+        return min;
     }
 }

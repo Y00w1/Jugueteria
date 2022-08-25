@@ -63,6 +63,9 @@ public class Main {
                        case 4:
                            jugueteC.masxTipo(jugueteC.juguetes, jugueteC.i);
                            break;
+                       case 5:
+                           jugueteC.menorTipo(jugueteC.juguetes, jugueteC.i);
+                           break;
                    }
                    break;
            }
