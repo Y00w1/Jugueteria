@@ -11,7 +11,7 @@ public class VentaController {
         try {
             String fechaVenta = JOptionPane.showInputDialog("Ingrese la fecha");
             double descuento = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el descuento en porcentaje"));
-            String cliente = JOptionPane.showInputDialog("Ingrese el nombre del cliente").toLowerCase();
+            String cliente = JOptionPane.showInputDialog("Ingrese el nombre del cliente o proveedor").toLowerCase();
             String empleado = JOptionPane.showInputDialog("Ingrese el nombre del empleado").toLowerCase();
             ventaImp.venderJug(fechaVenta, descuento, cliente, empleado, empleados, clientes, juguetes, empl, clien, jug);
     }catch (Exception e){

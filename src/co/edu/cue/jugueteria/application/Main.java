@@ -2,6 +2,7 @@ package co.edu.cue.jugueteria.application;
 
 import co.edu.cue.jugueteria.constants.Menu;
 import co.edu.cue.jugueteria.controllers.JugueteController;
+import co.edu.cue.jugueteria.controllers.ProveedorController;
 import co.edu.cue.jugueteria.controllers.UsuarioController;
 import co.edu.cue.jugueteria.controllers.VentaController;
 
@@ -12,6 +13,7 @@ public class Main {
         UsuarioController usuarioC = new UsuarioController();
         JugueteController jugueteC = new JugueteController();
         VentaController ventaC = new VentaController();
+        ProveedorController provC = new ProveedorController();
         Menu menus = new Menu();
        int op = 1;
        int op1;
@@ -31,6 +33,9 @@ public class Main {
                            break;
                        case 3:
                            usuarioC.crearEmpl();
+                           break;
+                       case 4:
+                           provC.agregarProv();
                            break;
                        default:
                            break;

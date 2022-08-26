@@ -1,5 +1,6 @@
 package co.edu.cue.jugueteria.controllers;
 
+import co.edu.cue.jugueteria.constants.Menu;
 import co.edu.cue.jugueteria.services.impl.JugueteServiceImpl;
 
 import javax.swing.*;
@@ -7,15 +8,13 @@ import java.util.Locale;
 
 public class JugueteController {
     JugueteServiceImpl jugueteImp = new JugueteServiceImpl();
+    Menu menus = new Menu();
     public JugueteServiceImpl getJugueteImp() {return jugueteImp;}
     public void crearJug(){
         String nombre = JOptionPane.showInputDialog("Escriba el nombre del juguete").toLowerCase();
         double precio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el precio"));
         int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese las existencias"));
-        int mater = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero que corresponda al material\n" +
-                "1.Plástico\n" +
-                "2.Tela\n" +
-                "3.Eléctronico"));
+        int mater = Integer.parseInt(JOptionPane.showInputDialog(menus.menuMater));
         jugueteImp.agregarJug(nombre, precio, cantidad, mater);
     }
     public void disminuirExist(){

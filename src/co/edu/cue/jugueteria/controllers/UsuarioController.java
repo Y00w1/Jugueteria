@@ -18,7 +18,7 @@ public class UsuarioController {
             String direccion = JOptionPane.showInputDialog("Ingrese la dirección");
             String ingresoDato = JOptionPane.showInputDialog("Ingrese la fecha de ingreso");
             double salario = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el salario del empleado"));
-            usuario.agregarEmpl(nombre, cedula, telefono, direccion, ingresoDato, salario);
+            usuario.agregarEmpl(nombre, cedula, telefono, direccion, ingresoDato, salario, 0);
         }catch (Exception e){
             System.out.print(e+"\n" +
                     "No se pudo crear el empleado");
@@ -32,7 +32,7 @@ public class UsuarioController {
             String direccion = JOptionPane.showInputDialog("Ingrese la dirección");
             String fechaNac = JOptionPane.showInputDialog("Ingrese la fecha de nacimiento");
             String correo = JOptionPane.showInputDialog("Ingrese el correo");
-            usuario.agregarCli(nombre, cedula, telefono, direccion, fechaNac, correo);
+            usuario.agregarCli(nombre, cedula, telefono, direccion, fechaNac, correo, 0);
         }catch (Exception e){
             System.out.println(e+"\n" +
                     "No se pudo crear el cliente");

@@ -14,15 +14,21 @@ public class UsuarioServiceImpl implements UsuarioService {
     public int getI() {return i;}
     public int getJ() {return j;}
 
-    public void agregarCli(String nombre, String cedula, String telefono, String direccion, String fechaNac, String correo) {
-        clientes[j] = new Cliente(nombre, cedula, telefono, direccion, fechaNac, correo);
+    public void agregarCli(String nombre, String cedula, String telefono, String direccion, String fechaNac, String correo, int compras) {
+        clientes[j] = new Cliente(nombre, cedula, telefono, direccion, fechaNac, correo, compras);
         System.out.println(clientes[j].getNombre());
         j++;
     }
 
-    public void agregarEmpl(String nombre, String cedula, String telefono, String direccion, String ingresoDato, double salario) {
-        empleados[i]= new Empleado(nombre, cedula, telefono, direccion, ingresoDato, salario);
+    public void agregarEmpl(String nombre, String cedula, String telefono, String direccion, String ingresoDato, double salario, int ventas) {
+        empleados[i]= new Empleado(nombre, cedula, telefono, direccion, ingresoDato, salario, ventas);
         System.out.println(empleados[i].getNombre());
         i++;
+    }
+    public void mayorCompras() {
+
+    }
+    public void mayorVentas() {
+
     }
 }
