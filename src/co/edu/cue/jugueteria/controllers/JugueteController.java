@@ -7,6 +7,7 @@ import java.util.Locale;
 
 public class JugueteController {
     JugueteServiceImpl jugueteImp = new JugueteServiceImpl();
+    public JugueteServiceImpl getJugueteImp() {return jugueteImp;}
     public void crearJug(){
         String nombre = JOptionPane.showInputDialog("Escriba el nombre del juguete").toLowerCase();
         double precio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el precio"));

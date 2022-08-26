@@ -9,6 +9,7 @@ import java.util.Locale;
 
 public class UsuarioController {
     UsuarioServiceImpl usuario = new UsuarioServiceImpl();
+    public UsuarioServiceImpl getUsuario() {return usuario;}
     public void crearEmpl(){
         try {
             String nombre = JOptionPane.showInputDialog("Ingrese el nombre del empleado").toLowerCase();

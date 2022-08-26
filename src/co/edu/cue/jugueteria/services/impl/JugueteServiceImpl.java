@@ -8,9 +8,11 @@ import javax.swing.*;
 
 public class JugueteServiceImpl implements JugueteService {
     public Juguete[] juguetes = new Juguete[10];
+    public Juguete[] getJuguetes() {return juguetes;}
     public int[] cantTipo = new int[3];
     String material = "";
     public int j = 0;
+    public int getJ() {return j;}
     public void agregarJug(String nombre, double precio, int cantidad, int mater) {
         switch (mater){
             case 1:
@@ -26,6 +28,7 @@ public class JugueteServiceImpl implements JugueteService {
                 break;
         }
         juguetes[j] = new Juguete(nombre, precio, cantidad, material);
+        System.out.println(juguetes[j].getNombre());
         j++;
     }
     public void disminuirExist(String nombre, int dism) {
@@ -147,9 +150,8 @@ public class JugueteServiceImpl implements JugueteService {
                 k++;
             }
         }
-        for (int i = 0; i < j; i++) {
-            System.out.println(juguetes[i]);
+        for (int l = 0; l < j; l++) {
+            System.out.println(juguetesMay[l]);
         }
     }
-
 }
