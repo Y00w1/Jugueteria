@@ -31,7 +31,7 @@ import javax.swing.*;
                     for (int k = 0; k <= jug-1; k++) {
                         System.out.println(juguetes[k].getNombre());
                         if (juguetes[k].getNombre().equals(jugueteN)){
-                            if (unidades< juguetes[k].getCantidad()){
+                            if (unidades <= juguetes[k].getCantidad()){
                                 int nuevaCantidad = juguetes[k].getCantidad() - unidades;
                                 juguetes[k].setCantidad(nuevaCantidad);
                                 DetalleVenta detalleVenta=new DetalleVenta(unidades, juguetes[k]);
