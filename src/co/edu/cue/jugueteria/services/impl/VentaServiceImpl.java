@@ -7,7 +7,7 @@ import javax.swing.*;
     public class VentaServiceImpl implements VentaService {
     public Venta[] ventas = new Venta[10];
     int j=0;
-    private boolean compararCliente(String clienteN,  Cliente[] clientes,  int clien){
+    /*private boolean compararCliente(String clienteN,  Cliente[] clientes,  int clien){
         boolean igualCli = false;
         for (int i = 0; i < clien; i++) {
             if (clientes[i].getNombre().equals(clienteN)){
@@ -16,8 +16,8 @@ import javax.swing.*;
             }
         }
         return igualCli;
-    }
-    private boolean validEmpleado(String empleadoN, Empleado[] empleados, int empl){
+    }*/
+    /*private boolean validEmpleado(String empleadoN, Empleado[] empleados, int empl){
         boolean igualEmpl = false;
         for (int i = 0; i < empl; i++) {
             if (empleados[i].getNombre().equals(empleadoN)){
@@ -26,14 +26,26 @@ import javax.swing.*;
             }
         }
         return igualEmpl;
-    }
+    }*/
     public void venderJug(String fechaVenta, double descuento, String cliente, String empleado, Empleado[] empleados, Cliente[] clientes, Juguete[] juguetes, int empl, int clien, int jug) {
-        //int posE = 0;
-        //int posC = 0;
+        boolean igualCli = false;
+        boolean igualEmpl = false;
+        int posC=0;
+        int posE=0;
         try{
-            boolean validCliente = compararCliente(cliente, clientes, clien);
-            boolean validEmpleado = validEmpleado(empleado,empleados, empl);
-            if (validCliente & validEmpleado){
+            for (int i = 0; i < clien; i++) {
+                if (clientes[i].getNombre().equals(cliente)){
+                    igualCli = true;
+                    posC = i;
+                }
+            }
+            for (int i = 0; i < empl; i++) {
+                if (empleados[i].getNombre().equals(empleado)){
+                    igualEmpl = true;
+                    posE=i;
+                }
+            }
+            if (igualCli & igualEmpl){
                 DetalleVenta[] detalleVentas = new DetalleVenta[10];
                 int cant = 1;
                 int i = 0;
@@ -80,10 +92,10 @@ import javax.swing.*;
                 }
                 double total = totalPar-((descuento*totalPar)/100);
                 ventas[j] = new Venta(fechaVenta, descuento, total, detalleVentas, cliente, empleado);
-                //empleados[posE].setVentas(empleados[posE].getVentas()+1);
-                //clientes[posC].setCompras(clientes[posC].getCompras()+1);
+                empleados[posE].setVentas(empleados[posE].getVentas()+1);
+                clientes[posC].setCompras(clientes[posC].getCompras()+1);
                 JOptionPane.showMessageDialog(null, "precio total "+ventas[j].getTotal());
-                //System.out.println(empleados[posE].getVentas() +""+ clientes[posC].getCompras());
+                System.out.println(empleados[posE].getVentas() +""+ clientes[posC].getCompras());
                 j++;
             }else{
                 System.out.println("Los nombres de empleado y cliente no coinciden");

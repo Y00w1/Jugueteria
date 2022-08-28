@@ -9,6 +9,7 @@ import javax.swing.*;
 public class ProveedorController {
     Menu menus = new Menu();
     ProveedorServiceImlp provServ = new ProveedorServiceImlp();
+    public ProveedorServiceImlp getProvServ() {return provServ; }
     public void agregarProv(){
         try{
             String codigo = JOptionPane.showInputDialog("Ingrese el código del proveedor");

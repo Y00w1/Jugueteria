@@ -38,4 +38,10 @@ public class UsuarioController {
                     "No se pudo crear el cliente");
         }
     }
+    public void mayorCompras(){
+        usuario.mayorCompras();
+    }
+    public void mayorVentas(){
+        usuario.mayorVentas();
+    }
 }

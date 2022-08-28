@@ -6,6 +6,7 @@ public class Menu {
             "3.Disminuir existencias de juguete\n" +
             "4.Aumentar existencias de juguete\n" +
             "5.Informes\n" +
+            "6.Comprar al proveedor\n" +
             "0.Finalizar";
     public String menu1 = "1.Agregar juguete\n" +
             "2.Agregar cliente\n" +
@@ -17,7 +18,9 @@ public class Menu {
             "3.Valor total juguetes\n" +
             "4.Mas juguetes por tipo\n" +
             "5.Menos juguetes por tipo\n" +
-            "6.Juguetes con valor mayor a ";
+            "6.Juguetes con valor mayor a \n" +
+            "7. Cliente con mas compras\n" +
+            "8. Mejor empleado";
     public String menuMater = "Ingrese el numero que corresponda al material\n" +
             "1.Plástico\n" +
             "2.Tela\n" +

@@ -1,10 +1,8 @@
 package co.edu.cue.jugueteria.application;
 
 import co.edu.cue.jugueteria.constants.Menu;
-import co.edu.cue.jugueteria.controllers.JugueteController;
-import co.edu.cue.jugueteria.controllers.ProveedorController;
-import co.edu.cue.jugueteria.controllers.UsuarioController;
-import co.edu.cue.jugueteria.controllers.VentaController;
+import co.edu.cue.jugueteria.controllers.*;
+import co.edu.cue.jugueteria.model.CompraProveedor;
 
 import javax.swing.*;
 
@@ -14,6 +12,7 @@ public class Main {
         JugueteController jugueteC = new JugueteController();
         VentaController ventaC = new VentaController();
         ProveedorController provC = new ProveedorController();
+        CompraProvController compraProvC = new CompraProvController();
         Menu menus = new Menu();
        int op = 1;
        int op1;
@@ -40,7 +39,6 @@ public class Main {
                        default:
                            break;
                    }
-
                    break;
                case 2:
                    ventaC.crearVenta(usuarioC.getUsuario().getEmpleados(), usuarioC.getUsuario().getClientes(), jugueteC.getJugueteImp().getJuguetes(), usuarioC.getUsuario().getI(), usuarioC.getUsuario().getJ(), jugueteC.getJugueteImp().getJ());
@@ -73,9 +71,18 @@ public class Main {
                        case 6:
                            jugueteC.juguetesMay();
                            break;
+                       case 7:
+                           usuarioC.mayorCompras();
+                           break;
+                       case 8:
+                           usuarioC.mayorVentas();
+                           break;
                        default:
                            break;
                    }
+                   break;
+               case 6:
+                   compraProvC.compraProveedor(jugueteC.getJugueteImp().getJuguetes(), jugueteC.getJugueteImp().getJ(), provC.getProvServ().getProveedores(), provC.getProvServ().getCant());
                    break;
                default:
                    break;

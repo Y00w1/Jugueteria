@@ -3,7 +3,7 @@ package co.edu.cue.jugueteria.model;
 public class CompraProveedor {
     private Proveedor proveedor;
     private Juguete juguete;
-    private Double precio;
+    private double precio;
 
     public Proveedor getProveedor() {
         return proveedor;
@@ -21,15 +21,15 @@ public class CompraProveedor {
         this.juguete = juguete;
     }
 
-    public Double getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Double precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
-    public CompraProveedor(Proveedor proveedor, Juguete juguete, Double precio) {
+    public CompraProveedor(Proveedor proveedor, Juguete juguete, double precio) {
         this.proveedor = proveedor;
         this.juguete = juguete;
         this.precio = precio;
